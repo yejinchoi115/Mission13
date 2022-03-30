@@ -1,0 +1,53 @@
+﻿@{
+}
+
+@model Mission13.Models.Bowler
+
+<h1>Create a new bowler record</h1>
+
+<form method="post" class="form-group">
+    <div asp-validation-summary="All"></div>
+
+    <label asp-for="BowlerFirstName">First Name:</label>
+    <input asp-for="BowlerFirstName" class="form-control" />
+
+    <label asp-for="BowlerMiddleInit">Middle Init:</label>
+    <input asp-for="BowlerMiddleInit" class="form-control" />
+
+    <label asp-for="BowlerLastName">Last Name:</label>
+    <input asp-for="BowlerLastName" class="form-control" />
+
+    <label asp-for="BowlerAddress">Address:</label>
+    <input asp-for="BowlerAddress" class="form-control" />
+
+    <label asp-for="BowlerFirstName">First Name:</label>
+    <input asp-for="BowlerFirstName" class="form-control" />
+
+    <label asp-for="BowlerCity">City:</label>
+    <input asp-for="BowlerCity" class="form-control" />
+
+    <label asp-for="BowlerState">State:</label>
+    <input asp-for="BowlerState" class="form-control" />
+
+    <label asp-for="BowlerZip">ZIP:</label>
+    <input asp-for="BowlerZip" class="form-control" />
+
+    <label asp-for="BowlerPhoneNumber">Phone Number:</label>
+    <input asp-for="BowlerPhoneNumber" class="form-control"/>
+
+    <br />
+    <label asp-for="TeamID">Team name:</label>
+    <select asp-for="TeamID" class="form-control">
+        @foreach (Team t in ViewBag.Teams)
+            {
+                <option value="@t.TeamID">@t.TeamName</option>
+            }
+    </select>
+    <br />
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+    @if (ViewBag.New == false)
+            {
+                <input type="hidden" asp-for="BowlerID"/>
+            }
+</form>
